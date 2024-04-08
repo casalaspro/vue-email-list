@@ -18,6 +18,7 @@ createApp({
   data(){
     return{
       prova: true,
+      emails: [],
     }
   },
 
@@ -25,11 +26,14 @@ createApp({
 
   methods: {
 
-    provaApi(){
+    provaApi(number){
+      for(let i = 0; i<number; i++){
         axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
         .then((response=>{
-            console.log(response.data.response);
+            this.emails.push(response.data.response);
           }))
+      }
+      console.log(this.emails);
     }
 
   },
@@ -37,7 +41,7 @@ createApp({
   // CREATED HOOK
 
   created(){
-    this.provaApi();
+    this.provaApi(10);
   },
 
 }).mount('#app')

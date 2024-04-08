@@ -9,13 +9,15 @@
 <body>
 
   <main>
-    
+
     <section>
 
       <div class="container">
 
         <div id="app">
-
+          <ul v-for="email in emails" class="emails_list">
+            <li>{{email}}</li>
+          </ul>
         </div>
       
       </div>
